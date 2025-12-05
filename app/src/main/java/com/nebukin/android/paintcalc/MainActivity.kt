@@ -74,37 +74,19 @@ class MainActivity : AppCompatActivity() {
     private fun calculate() {
         val mainRatio = editMainRatio.text.toString().toDoubleOrNull()
         val hardenerRatio = editHardenerRatio.text.toString().toDoubleOrNull()
-        val dilutionRate = editDilutionRate.text.toString().toDoubleOrNull() ?: 0.0
+        val dilutionRate = editDilutionRate.text.toString().toDoubleOrNull()
         val totalAmount = editTotalAmount.text.toString().toDoubleOrNull()
 
-        if (mainRatio == null || hardenerRatio == null || totalAmount == null) {
+        val result = PaintCalculator.calculate(mainRatio, hardenerRatio, dilutionRate, totalAmount)
+
+        if (result == null) {
             clearResults()
             return
         }
 
-        val ratioSum = mainRatio + hardenerRatio
-        if (ratioSum <= 0) {
-            clearResults()
-            return
-        }
-
-        // 計算ロジック
-        // 希釈前の量 = 作成量 ÷ (1 + 希釈率/100)
-        val preDilutionAmount = totalAmount / (1 + dilutionRate / 100)
-
-        // 主液量 = 希釈前の量 × 主液比率 ÷ (主液比率 + 硬化剤比率)
-        val mainAmount = preDilutionAmount * mainRatio / ratioSum
-
-        // 硬化量 = 希釈前の量 × 硬化剤比率 ÷ (主液比率 + 硬化剤比率)
-        val hardenerAmount = preDilutionAmount * hardenerRatio / ratioSum
-
-        // 希釈量 = 作成量 - 主液量 - 硬化量
-        val dilutionAmount = totalAmount - mainAmount - hardenerAmount
-
-        // 結果を表示
-        textMainAmount.text = formatResult(mainAmount)
-        textHardenerAmount.text = formatResult(hardenerAmount)
-        textDilutionAmount.text = formatResult(dilutionAmount)
+        textMainAmount.text = formatResult(result.mainAmount)
+        textHardenerAmount.text = formatResult(result.hardenerAmount)
+        textDilutionAmount.text = formatResult(result.dilutionAmount)
     }
 
     private fun formatResult(value: Double): String {
