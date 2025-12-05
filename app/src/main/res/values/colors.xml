@@ -2,4 +2,15 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- 高コントラスト配色（日光下対応） -->
+    <color name="primary">#1565C0</color>
+    <color name="primary_dark">#0D47A1</color>
+    <color name="background">#FFFFFF</color>
+    <color name="text_primary">#212121</color>
+    <color name="text_secondary">#757575</color>
+    <color name="input_background">#F5F5F5</color>
+    <color name="input_stroke">#BDBDBD</color>
+    <color name="result_background">#E3F2FD</color>
+    <color name="result_text">#0D47A1</color>
 </resources>

@@ -1,3 +1,22 @@
 <resources>
-    <string name="app_name">PaintCalc</string>
+    <string name="app_name">塗料計算機</string>
+
+    <!-- 入力ラベル -->
+    <string name="label_main_ratio">主液比率</string>
+    <string name="label_hardener_ratio">硬化剤比率</string>
+    <string name="label_dilution_rate">希釈率 (%)</string>
+    <string name="label_total_amount">作成量 (kg)</string>
+
+    <!-- 出力ラベル -->
+    <string name="label_main_amount">主液量</string>
+    <string name="label_hardener_amount">硬化量</string>
+    <string name="label_dilution_amount">希釈量</string>
+
+    <!-- 単位 -->
+    <string name="unit_kg">kg</string>
+
+    <!-- ヒント -->
+    <string name="hint_ratio">比率</string>
+    <string name="hint_percent">%</string>
+    <string name="hint_kg">kg</string>
 </resources>
