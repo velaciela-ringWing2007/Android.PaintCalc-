@@ -238,6 +238,55 @@ class PaintCalculatorTest {
     }
 
     // ========================================
+    // 特殊な配合パターン (1液型・大量希釈)
+    // ========================================
+
+    @Test
+    fun `1液型パターン - 硬化剤なし 希釈20% 2kg`() {
+        val result = PaintCalculator.calculate(
+            mainRatio = 1.0,
+            hardenerRatio = 0.0,
+            dilutionRate = 20.0,
+            totalAmount = 2.0
+        )
+
+        assertNotNull(result)
+        // 希釈前の量 = 2.0 / 1.2 ≒ 1.667 kg
+        // 主液 = 1.667 * 1.0/1.0 = 1.667 kg
+        // 硬化剤 = 0.0 kg
+        // 希釈剤 = 2.0 - 1.667 ≒ 0.333 kg
+        assertEquals(1.667, result!!.mainAmount, DELTA)
+        assertEquals(0.0, result.hardenerAmount, DELTA)
+        assertEquals(0.333, result.dilutionAmount, DELTA)
+
+        val total = result.mainAmount + result.hardenerAmount + result.dilutionAmount
+        assertEquals(2.0, total, DELTA)
+    }
+
+    @Test
+    fun `大量希釈パターン - 希釈率150% (主液の1.5倍シンナー) 1kg`() {
+        // 主液100に対してシンナー150を入れる洗い作業などの想定
+        val result = PaintCalculator.calculate(
+            mainRatio = 1.0,
+            hardenerRatio = 0.0,
+            dilutionRate = 150.0,
+            totalAmount = 1.0
+        )
+
+        assertNotNull(result)
+        // 希釈前の量 = 1.0 / (1 + 1.5) = 1.0 / 2.5 = 0.4 kg
+        // 主液 = 0.4 kg
+        // 硬化剤 = 0.0 kg
+        // 希釈剤 = 1.0 - 0.4 = 0.6 kg
+        assertEquals(0.4, result!!.mainAmount, DELTA)
+        assertEquals(0.0, result.hardenerAmount, DELTA)
+        assertEquals(0.6, result.dilutionAmount, DELTA)
+
+        val total = result.mainAmount + result.hardenerAmount + result.dilutionAmount
+        assertEquals(1.0, total, DELTA)
+    }
+
+    // ========================================
     // 小数点を含む比率パターン
     // ========================================
 
