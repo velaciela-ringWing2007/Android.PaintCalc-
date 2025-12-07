@@ -17,6 +17,8 @@
 
     <!-- ヒント -->
     <string name="hint_ratio">比率</string>
+    <string name="hint_main_ratio">主液</string>
+    <string name="hint_hardener_ratio">硬化剤</string>
     <string name="hint_percent">%</string>
     <string name="hint_kg">kg</string>
 </resources>

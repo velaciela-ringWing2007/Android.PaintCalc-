@@ -51,14 +51,14 @@
                     android:layout_height="wrap_content"
                     android:text="@string/label_main_ratio"
                     android:textColor="@color/text_primary"
-                    android:textSize="14sp" />
+                    android:textSize="22sp" />
 
                 <EditText
                     android:id="@+id/editMainRatio"
                     android:layout_width="match_parent"
                     android:layout_height="56dp"
                     android:background="@drawable/input_background"
-                    android:hint="@string/hint_ratio"
+                    android:hint="@string/hint_main_ratio"
                     android:inputType="numberDecimal"
                     android:paddingHorizontal="16dp"
                     android:paddingVertical="12dp"
@@ -79,14 +79,14 @@
                     android:layout_height="wrap_content"
                     android:text="@string/label_hardener_ratio"
                     android:textColor="@color/text_primary"
-                    android:textSize="14sp" />
+                    android:textSize="22sp" />
 
                 <EditText
                     android:id="@+id/editHardenerRatio"
                     android:layout_width="match_parent"
                     android:layout_height="56dp"
                     android:background="@drawable/input_background"
-                    android:hint="@string/hint_ratio"
+                    android:hint="@string/hint_hardener_ratio"
                     android:inputType="numberDecimal"
                     android:paddingHorizontal="16dp"
                     android:paddingVertical="12dp"
@@ -115,7 +115,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/label_dilution_rate"
                     android:textColor="@color/text_primary"
-                    android:textSize="14sp" />
+                    android:textSize="22sp" />
 
                 <EditText
                     android:id="@+id/editDilutionRate"
@@ -143,7 +143,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/label_total_amount"
                     android:textColor="@color/text_primary"
-                    android:textSize="14sp" />
+                    android:textSize="22sp" />
 
                 <EditText
                     android:id="@+id/editTotalAmount"
